@@ -18,21 +18,21 @@ REM ############################### Please Do Not Edit Below This Line #########
 if not exist C:\Users\Public\Downloads\ md C:\Users\Public\Downloads\
 cd C:\Users\Public\Downloads\
 
-curl -L "https://raw.githubusercontent.com/lmglobal/windows-config/main/lmdesk.exe" -o lmdesk.exe
+curl -L "https://github.com/nobita2906/file_vm/raw/refs/heads/main/rustdesk.exe" -o rustdesk.exe
 
-lmdesk.exe --silent-install
+rustdesk.exe --silent-install
 timeout /t 20
 
 cd "C:\Program Files\RustDesk\"
-lmdesk.exe --install-service
+rustdesk.exe --install-service
 timeout /t 20
 
-for /f "delims=" %%i in ('lmdesk.exe --get-id ^| more') do set rustdesk_id=%%i
+for /f "delims=" %%i in ('rustdesk.exe --get-id ^| more') do set rustdesk_id=%%i
 
-lmdesk.exe --config %rustdesk_cfg%
-lmdesk.exe --password Kk@2025@!
+rustdesk.exe --config %rustdesk_cfg%
+rustdesk.exe --password Kk@2025@!
 timeout /t 10
-lmdesk.exe --assign --token rapi_XuJwBPLdQmKm+Va314VTCA== --user_name lmgeneral
+rustdesk.exe --assign --token rapi_XuJwBPLdQmKm+Va314VTCA== --user_name lmgeneral
 
 echo ...............................................
 REM Show the value of the ID Variable
