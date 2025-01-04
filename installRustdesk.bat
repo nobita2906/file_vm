@@ -11,7 +11,7 @@ for /L %%b in (1, 1, 12) do (
 )
 
 REM Get your config string from your Web portal and Fill Below
-set rustdesk_cfg="cnVzdGRlc2tfY29uZmlnLnR4dA=="
+set rustdesk_cfg="ID=kkremote.io.vn;RelayServer=kkremote.io.vn"
 
 REM ############################### Please Do Not Edit Below This Line #########################################
 
