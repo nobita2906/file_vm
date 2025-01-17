@@ -34,13 +34,13 @@ rustdesk.exe --config %rustdesk_cfg%
 rustdesk.exe --password Kk@2025@!
 timeout /t 5
 
-echo ...............................................
+echo ..............
 REM Show the value of the ID Variable
 echo RustDesk ID: %rustdesk_id%
 
 REM Show the value of the Password Variable
 echo Password: %rustdesk_pw%
-echo ...............................................
+echo ..............
 
 :: Yêu cầu người dùng nhập tên mới cho máy tính
 set /p UserName=Nhap ten moi cho may tinh (theo ten may duoc cap, vi du: G2xxx): 
