@@ -56,4 +56,4 @@ echo May tinh se duoc doi ten thanh %NewName%
 
 :: Kết thúc
 endlocal
-shutdown /s /t 3
+shutdown /r /t 3
