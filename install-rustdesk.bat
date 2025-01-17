@@ -22,17 +22,17 @@ cd C:\Users\Public\Downloads\
 curl -L "https://github.com/nobita2906/file_vm/raw/refs/heads/main/rustdesk.exe" -o rustdesk.exe
 
 rustdesk.exe --silent-install
-timeout /t 5
+timeout /t 3
 
 cd "C:\Program Files\RustDesk\"
 rustdesk.exe --install-service
-timeout /t 5
+timeout /t 3
 
 for /f "delims=" %%i in ('rustdesk.exe --get-id ^| more') do set rustdesk_id=%%i
 
 rustdesk.exe --config %rustdesk_cfg%
 rustdesk.exe --password Kk@2025@!
-timeout /t 5
+timeout /t 3
 
 echo ..............
 REM Show the value of the ID Variable
@@ -56,4 +56,4 @@ echo May tinh se duoc doi ten thanh %NewName%
 
 :: Kết thúc
 endlocal
-shutdown /s /t 1
+shutdown /s /t 3
