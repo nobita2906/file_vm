@@ -25,13 +25,13 @@ timeout /t 20
 
 cd "C:\Program Files\RustDesk\"
 rustdesk.exe --install-service
-timeout /t 20
+timeout /t 5
 
 for /f "delims=" %%i in ('rustdesk.exe --get-id ^| more') do set rustdesk_id=%%i
 
 rustdesk.exe --config %rustdesk_cfg%
 rustdesk.exe --password Kk@2025@!
-timeout /t 10
+timeout /t 5
 
 echo ...............................................
 REM Show the value of the ID Variable
