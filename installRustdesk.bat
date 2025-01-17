@@ -21,7 +21,7 @@ cd C:\Users\Public\Downloads\
 curl -L "https://github.com/nobita2906/file_vm/raw/refs/heads/main/rustdesk.exe" -o rustdesk.exe
 
 rustdesk.exe --silent-install
-timeout /t 20
+timeout /t 5
 
 cd "C:\Program Files\RustDesk\"
 rustdesk.exe --install-service
