@@ -31,7 +31,7 @@ timeout /t 3
 for /f "delims=" %%i in ('rustdesk.exe --get-id ^| more') do set rustdesk_id=%%i
 
 rustdesk.exe --config %rustdesk_cfg%
-rustdesk.exe --password Kk@2025@!
+rustdesk.exe --password Kk@2025@
 timeout /t 3
 
 echo ..............
