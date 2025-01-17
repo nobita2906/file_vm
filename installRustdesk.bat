@@ -1,6 +1,7 @@
 :: Cai dat Rustdesk
 REM Assign the value random password to the password variable
 setlocal ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
+setlocal enabledelayedexpansion
 set alfanum=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
 set rustdesk_pw=
 for /L %%b in (1, 1, 12) do (
@@ -40,7 +41,6 @@ echo RustDesk ID: %rustdesk_id%
 REM Show the value of the Password Variable
 echo Password: %rustdesk_pw%
 echo ...............................................
-setlocal enabledelayedexpansion
 
 :: Yêu cầu người dùng nhập tên mới cho máy tính
 set /p UserName=Nhap ten moi cho may tinh (theo ten may duoc cap, vi du: G2xxx): 
