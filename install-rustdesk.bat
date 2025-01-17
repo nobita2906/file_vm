@@ -46,7 +46,7 @@ echo ...............................................
 set /p UserName=Nhap ten moi cho may tinh (theo ten may duoc cap, vi du: G2xxx): 
 
 :: Tạo tên mới cho máy tính
-set NewName=PC-%UserName%
+set NewName=%UserName%
 
 :: Đổi tên máy tính
 wmic computersystem where name="%computername%" call rename name="%NewName%"
