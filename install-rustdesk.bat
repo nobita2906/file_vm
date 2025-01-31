@@ -54,9 +54,19 @@ wmic computersystem where name="%computername%" call rename name="%NewName%"
 :: Thông báo cho người dùng rằng máy tính sẽ được đổi tên
 echo May tinh se duoc doi ten thanh %NewName%
 
-:: Gửi thông báo đến Telegram
-set MESSAGE=✅ Máy tính mới được cài đặt%0A🔹 **Tên máy**: %NewName%%0A🔹 **ID**: %rustdesk_id%%0A🔹 **Mật khẩu**: %rustdesk_pw%
-curl -s -X POST "https://api.telegram.org/bot%TELEGRAM_BOT_TOKEN%/sendMessage" -d "chat_id=%TELEGRAM_CHAT_ID%&text=%MESSAGE%&parse_mode=Markdown"
+:: Ghi nội dung tin nhắn vào file tạm
+echo ✅ Máy tính mới được cài đặt > message.txt
+echo 🔹 Tên máy: %NewName% >> message.txt
+echo 🔹 ID: %rustdesk_id% >> message.txt
+echo 🔹 Mật khẩu: %rustdesk_pw% >> message.txt
+
+:: Gửi tin nhắn qua Telegram
+curl -s -X POST "https://api.telegram.org/bot%TELEGRAM_BOT_TOKEN%/sendMessage" ^
+     -d chat_id=%TELEGRAM_CHAT_ID% ^
+     --data-urlencode text@"message.txt"
+
+:: Xóa file tạm sau khi gửi xong
+del message.txt
 
 :: Kết thúc
 endlocal
