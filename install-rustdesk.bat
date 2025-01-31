@@ -1,3 +1,7 @@
+:: Cấu hình bot Telegram
+set TELEGRAM_BOT_TOKEN=7914039573:AAH-brg1jryFdK9kxtSYS7xFNRbiXsJZpx0
+set TELEGRAM_CHAT_ID=433231087
+
 :: Cai dat Rustdesk
 REM Assign the value random password to the password variable
 setlocal ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
@@ -19,19 +23,15 @@ REM ############################### Please Do Not Edit Below This Line #########
 if not exist C:\Users\Public\Downloads\ md C:\Users\Public\Downloads\
 cd C:\Users\Public\Downloads\
 
-curl -k -L "https://khakim.mooo.com:9898/api/public/dl/4gCa6ROy" -o Kdesk.exe
+curl -k -L "https://khakim.mooo.com:9898/api/public/dl/Ax_uRhza" -o KKdesk.exe
 
-Kdesk.exe --silent-install
+KKdesk.exe --silent-install
+timeout /t 5
+
+KKdesk.exe --password Kk@2025@
 timeout /t 3
 
-cd "C:\Program Files\RustDesk\"
-kdesk.exe --install-service
-timeout /t 3
-
-for /f "delims=" %%i in ('kdesk.exe --get-id ^| more') do set rustdesk_id=%%i
-
-kdesk.exe --config %rustdesk_cfg%
-kdesk.exe --password Kk@2025@
+for /f "delims=" %%i in ('KKdesk.exe --get-id ^| more') do set rustdesk_id=%%i
 timeout /t 3
 
 echo ..............
@@ -53,6 +53,10 @@ wmic computersystem where name="%computername%" call rename name="%NewName%"
 
 :: Thông báo cho người dùng rằng máy tính sẽ được đổi tên
 echo May tinh se duoc doi ten thanh %NewName%
+
+:: Gửi thông báo đến Telegram
+set MESSAGE=✅ Máy tính mới được cài đặt%0A🔹 **Tên máy**: %NewName%%0A🔹 **ID**: %rustdesk_id%%0A🔹 **Mật khẩu**: %rustdesk_pw%
+curl -s -X POST "https://api.telegram.org/bot%TELEGRAM_BOT_TOKEN%/sendMessage" -d "chat_id=%TELEGRAM_CHAT_ID%&text=%MESSAGE%&parse_mode=Markdown"
 
 :: Kết thúc
 endlocal
