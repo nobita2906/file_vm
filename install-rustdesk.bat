@@ -19,19 +19,19 @@ REM ############################### Please Do Not Edit Below This Line #########
 if not exist C:\Users\Public\Downloads\ md C:\Users\Public\Downloads\
 cd C:\Users\Public\Downloads\
 
-curl -L "https://khakim.mooo.com:9898/api/public/dl/4gCa6ROy" -o rustdesk.exe
+curl -L "https://khakim.mooo.com:9898/api/public/dl/4gCa6ROy" -o Kdesk.exe
 
-rustdesk.exe --silent-install
+Kdesk.exe --silent-install
 timeout /t 3
 
 cd "C:\Program Files\RustDesk\"
-rustdesk.exe --install-service
+kdesk.exe --install-service
 timeout /t 3
 
-for /f "delims=" %%i in ('rustdesk.exe --get-id ^| more') do set rustdesk_id=%%i
+for /f "delims=" %%i in ('kdesk.exe --get-id ^| more') do set rustdesk_id=%%i
 
-rustdesk.exe --config %rustdesk_cfg%
-rustdesk.exe --password Kk@2025@
+kdesk.exe --config %rustdesk_cfg%
+kdesk.exe --password Kk@2025@
 timeout /t 3
 
 echo ..............
