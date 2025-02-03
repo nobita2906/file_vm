@@ -14,12 +14,6 @@ wmic computersystem where name="%computername%" call rename name="%NewName%"
 :: Thông báo cho người dùng rằng máy tính sẽ được đổi tên
 echo May tinh se duoc doi ten thanh %NewName%
 
-:: Ghi nội dung tin nhắn vào file tạm
-echo ✅ Máy tính mới được cài đặt > message.txt
-echo 🔹 Tên máy: %NewName% >> message.txt
-echo 🔹 ID: %rustdesk_id% >> message.txt
-echo 🔹 Mật khẩu: %rustdesk_pw% >> message.txt
-
 :: Cai dat Rustdesk
 REM Assign the value random password to the password variable
 setlocal ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
@@ -60,6 +54,11 @@ REM Show the value of the Password Variable
 echo Password: %rustdesk_pw%
 echo ..............
 
+:: Ghi nội dung tin nhắn vào file tạm
+echo ✅ Máy tính mới được cài đặt > message.txt
+echo 🔹 Tên máy: %NewName% >> message.txt
+echo 🔹 ID: %rustdesk_id% >> message.txt
+echo 🔹 Mật khẩu: %rustdesk_pw% >> message.txt
 
 :: Gửi tin nhắn qua Telegram
 curl -s -X POST "https://api.telegram.org/bot%TELEGRAM_BOT_TOKEN%/sendMessage" ^
