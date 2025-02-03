@@ -2,6 +2,24 @@
 set TELEGRAM_BOT_TOKEN=7914039573:AAH-brg1jryFdK9kxtSYS7xFNRbiXsJZpx0
 set TELEGRAM_CHAT_ID=433231087
 
+:: Yêu cầu người dùng nhập tên mới cho máy tính
+set /p UserName=Nhap ten moi cho may tinh (theo ten may duoc cap, vi du: G2xxx): 
+
+:: Tạo tên mới cho máy tính
+set NewName=%UserName%
+
+:: Đổi tên máy tính
+wmic computersystem where name="%computername%" call rename name="%NewName%"
+
+:: Thông báo cho người dùng rằng máy tính sẽ được đổi tên
+echo May tinh se duoc doi ten thanh %NewName%
+
+:: Ghi nội dung tin nhắn vào file tạm
+echo ✅ Máy tính mới được cài đặt > message.txt
+echo 🔹 Tên máy: %NewName% >> message.txt
+echo 🔹 ID: %rustdesk_id% >> message.txt
+echo 🔹 Mật khẩu: %rustdesk_pw% >> message.txt
+
 :: Cai dat Rustdesk
 REM Assign the value random password to the password variable
 setlocal ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
@@ -42,23 +60,6 @@ REM Show the value of the Password Variable
 echo Password: %rustdesk_pw%
 echo ..............
 
-:: Yêu cầu người dùng nhập tên mới cho máy tính
-set /p UserName=Nhap ten moi cho may tinh (theo ten may duoc cap, vi du: G2xxx): 
-
-:: Tạo tên mới cho máy tính
-set NewName=%UserName%
-
-:: Đổi tên máy tính
-wmic computersystem where name="%computername%" call rename name="%NewName%"
-
-:: Thông báo cho người dùng rằng máy tính sẽ được đổi tên
-echo May tinh se duoc doi ten thanh %NewName%
-
-:: Ghi nội dung tin nhắn vào file tạm
-echo ✅ Máy tính mới được cài đặt > message.txt
-echo 🔹 Tên máy: %NewName% >> message.txt
-echo 🔹 ID: %rustdesk_id% >> message.txt
-echo 🔹 Mật khẩu: %rustdesk_pw% >> message.txt
 
 :: Gửi tin nhắn qua Telegram
 curl -s -X POST "https://api.telegram.org/bot%TELEGRAM_BOT_TOKEN%/sendMessage" ^
