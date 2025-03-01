@@ -65,6 +65,11 @@ curl -s -X POST "https://api.telegram.org/bot%TELEGRAM_BOT_TOKEN%/sendMessage" ^
      -d chat_id=%TELEGRAM_CHAT_ID% ^
      --data-urlencode text@"message.txt"
 
+:: Gửi tin nhắn đến nhóm
+curl -s -X POST "https://api.telegram.org/bot%TELEGRAM_BOT_TOKEN%/sendMessage" ^
+     -d chat_id=-4661128711 ^
+     --data-urlencode text@"message.txt"
+
 :: Xóa file tạm sau khi gửi xong
 del message.txt
 
