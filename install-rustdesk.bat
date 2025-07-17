@@ -70,6 +70,11 @@ curl -s -X POST "https://api.telegram.org/bot%TELEGRAM_BOT_TOKEN%/sendMessage" ^
      -d chat_id=-4661128711 ^
      --data-urlencode text@"message.txt"
 
+:: Gửi tin nhắn đến nhóm Lark
+curl -X POST -H "Content-Type: application/json" ^
+    -d "{\"msg_type\":\"text\",\"content\":{\"text\":\"$(<message.txt)\"}}" ^
+    https://open.larksuite.com/open-apis/bot/v2/hook/9d01fa38-6822-41b5-aa27-cd9789012f72
+
 :: Xóa file tạm sau khi gửi xong
 del message.txt
 
